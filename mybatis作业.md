@@ -63,10 +63,18 @@ BatchExecutor：执行update（没有select，JDBC批处理不支持select），
 对ExecutorStatementHandlerParameterHandlerResultSetHandler四个组件进行拦截，用来增强核心对象功能，增强功能的本质是动态代理
 
 
-
 全局mybatis配置文件添加插件类
 
-插件类实现Interceptor，重写里面的2个方法（Intercept，plugin，setProperties）
+```xml
+<plugins>
+    <plugin interceptor="com.thc.plugin.MyPlugin">
+        <property name="name" value="tom"/>
+    </plugin>
+</plugins>
+```
+
+
+插件类实现Interceptor，重写里面的3个方法（Intercept，plugin，setProperties）
 
 类添加注释：
 
